@@ -6,6 +6,7 @@ final class LiveViewModel: ObservableObject {
     @Published var bitrateKbps: Int = 1200
     @Published var statusMessage: String = ""
     @Published var viewerURL: URL?
+    @Published var nativeViewerSession: NativeViewerSession?
     @Published var isLoading: Bool = false
 
     private let apiClient: APIClient
@@ -19,6 +20,7 @@ final class LiveViewModel: ObservableObject {
     func openLive() async {
         statusMessage = ""
         viewerURL = nil
+        nativeViewerSession = nil
 
         guard let session = sessionStore.session else {
             statusMessage = "Sign in first"
@@ -45,10 +47,10 @@ final class LiveViewModel: ObservableObject {
 
             if response.supported,
                let wsUrl = response.wsURL,
-               let accessToken = response.accessToken,
-               let url = buildLiveKitViewerURL(wsURL: wsUrl, token: accessToken) {
+               let accessToken = response.accessToken {
                 statusMessage = "Opening low-latency live view"
-                viewerURL = url
+                nativeViewerSession = NativeViewerSession(wsURL: wsUrl, accessToken: accessToken)
+                viewerURL = buildLiveKitViewerURL(wsURL: wsUrl, token: accessToken)
                 return
             }
 
@@ -65,12 +67,15 @@ final class LiveViewModel: ObservableObject {
     }
 
     private func buildLiveKitViewerURL(wsURL: String, token: String) -> URL? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "meet.livekit.io"
-        components.path = "/custom"
+        guard let base = URL(string: AppConfig.backendBaseURL) else { return nil }
+        guard var components = URLComponents(
+            url: base.appendingPathComponent("live/viewer"),
+            resolvingAgainstBaseURL: false
+        ) else {
+            return nil
+        }
         components.queryItems = [
-            URLQueryItem(name: "liveKitUrl", value: wsURL),
+            URLQueryItem(name: "ws_url", value: wsURL),
             URLQueryItem(name: "token", value: token)
         ]
         return components.url

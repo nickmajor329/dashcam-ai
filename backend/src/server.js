@@ -34,12 +34,70 @@ app.use("/api/v1/vehicle", vehicleRoutes);
 app.use("/api/v1/dashcam/events", eventRoutes);
 
 app.get("/live/viewer", (req, res) => {
+  const wsUrl = String(req.query.ws_url || "");
+  const token = String(req.query.token || "");
   res.type("html").send(`
-    <html><body style="font-family:sans-serif;background:#111;color:#eee;padding:16px">
-    <h2>Viewer Session</h2>
-    <p>Token: ${String(req.query.token || "")}</p>
-    <p>Replace this with your hosted WebRTC viewer app.</p>
-    </body></html>
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Dashcam Viewer</title>
+        <style>
+          body { margin: 0; background: #0f1116; color: #e9eef5; font-family: sans-serif; }
+          #wrap { padding: 12px; }
+          #status { margin-bottom: 10px; font-size: 14px; }
+          video { width: 100%; max-height: 78vh; background: #000; border-radius: 10px; object-fit: contain; }
+        </style>
+      </head>
+      <body>
+        <div id="wrap">
+          <div id="status">Connecting viewer...</div>
+          <video id="remoteVideo" autoplay playsinline controls></video>
+        </div>
+        <script type="module">
+          import { Room, RoomEvent } from "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.esm.mjs";
+          const statusEl = document.getElementById("status");
+          const remoteVideo = document.getElementById("remoteVideo");
+          const wsUrl = ${JSON.stringify(wsUrl)};
+          const token = ${JSON.stringify(token)};
+
+          function setStatus(msg) { statusEl.textContent = msg; }
+
+          async function start() {
+            if (!wsUrl || !token) {
+              setStatus("Missing ws_url/token");
+              return;
+            }
+            try {
+              const room = new Room({ adaptiveStream: true, dynacast: true });
+              room.on(RoomEvent.TrackSubscribed, (track) => {
+                if (track.kind !== "video") return;
+                track.attach(remoteVideo);
+                setStatus("Live video connected");
+              });
+              room.on(RoomEvent.Disconnected, () => setStatus("Disconnected"));
+
+              await room.connect(wsUrl, token);
+              setStatus("Connected, waiting for Android video...");
+
+              room.remoteParticipants.forEach((p) => {
+                p.trackPublications.forEach((pub) => {
+                  if (pub.track && pub.track.kind === "video") {
+                    pub.track.attach(remoteVideo);
+                    setStatus("Live video connected");
+                  }
+                });
+              });
+            } catch (e) {
+              setStatus("Viewer failed: " + (e?.message || e));
+            }
+          }
+
+          start();
+        </script>
+      </body>
+    </html>
   `);
 });
 
@@ -99,7 +157,7 @@ app.get("/live/auto-publisher", (req, res) => {
                 createLocalVideoTrack(),
                 createLocalAudioTrack()
               ]);
-              await room.localParticipant.publishTrack(videoTrack);
+              await room.localParticipant.publishTrack(videoTrack, { videoCodec: "h264" });
               await room.localParticipant.publishTrack(audioTrack);
               videoTrack.attach(localVideo);
               statusEl.textContent = "Publishing live. Keep this page open.";
