@@ -1,17 +1,25 @@
 package com.dashcam.ai.live
 
+import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.WindowManager
+import android.webkit.PermissionRequest
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.dashcam.ai.auth.AuthSessionManager
+import com.dashcam.ai.BuildConfig
 import com.dashcam.ai.databinding.ActivityLiveViewBinding
 import com.dashcam.ai.network.BackendApiClient
 import com.dashcam.ai.pairing.PairingManager
@@ -30,6 +38,19 @@ class LiveViewActivity : AppCompatActivity() {
     private lateinit var authSessionManager: AuthSessionManager
     private val apiClient = BackendApiClient()
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private val mediaPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { result ->
+        val hasCamera = result[Manifest.permission.CAMERA] == true ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+        val hasAudio = result[Manifest.permission.RECORD_AUDIO] == true ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+        if (hasCamera && hasAudio) {
+            requestAndOpenNativeLivePublisher()
+        } else {
+            Toast.makeText(this, "Camera/mic permission required for live publish", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onDestroy() {
         runCatching { binding.liveWebView.destroy() }
@@ -39,6 +60,7 @@ class LiveViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityLiveViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -49,19 +71,54 @@ class LiveViewActivity : AppCompatActivity() {
         binding.liveWebView.settings.mediaPlaybackRequiresUserGesture = false
         binding.liveWebView.settings.cacheMode = android.webkit.WebSettings.LOAD_NO_CACHE
         binding.liveWebView.webViewClient = WebViewClient()
-        binding.liveWebView.webChromeClient = WebChromeClient()
+        binding.liveWebView.webChromeClient = object : WebChromeClient() {
+            override fun onPermissionRequest(request: PermissionRequest?) {
+                if (request == null) return
+                val hasCamera = ContextCompat.checkSelfPermission(
+                    this@LiveViewActivity,
+                    Manifest.permission.CAMERA
+                ) == PackageManager.PERMISSION_GRANTED
+                val hasAudio = ContextCompat.checkSelfPermission(
+                    this@LiveViewActivity,
+                    Manifest.permission.RECORD_AUDIO
+                ) == PackageManager.PERMISSION_GRANTED
+                if (hasCamera && hasAudio) {
+                    request.grant(request.resources)
+                } else {
+                    request.deny()
+                    runOnUiThread {
+                        Toast.makeText(
+                            this@LiveViewActivity,
+                            "Camera/mic permission required for publisher stream",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
 
         binding.backButton.setOnClickListener { finish() }
         binding.openViewerButton.setOnClickListener { requestAndOpenLiveUrl("viewer") }
-        binding.openPublisherButton.setOnClickListener { requestAndOpenLiveUrl("publisher") }
+        binding.openPublisherButton.setOnClickListener {
+            if (hasMediaPermissions()) {
+                requestAndOpenNativeLivePublisher()
+            } else {
+                mediaPermissionLauncher.launch(
+                    arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                )
+            }
+        }
         binding.openNativeViewerButton.setOnClickListener { requestAndOpenNativeLiveViewer() }
         binding.snapshotButton.setOnClickListener { saveSnapshot() }
     }
 
     private fun requestAndOpenLiveUrl(role: String) {
         val state = pairingManager.snapshot()
-        if (!state.paired && role == "viewer") {
-            Toast.makeText(this, "Pair device first", Toast.LENGTH_SHORT).show()
+        val session = authSessionManager.snapshot()
+        val vehicleId = state.activeVehicleId.ifBlank { state.vehicleId }
+        val ownerId = state.pairedOwnerId.ifBlank { session.userId }
+        if (vehicleId.isBlank()) {
+            Toast.makeText(this, "Set vehicle ID in Pair screen first", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -69,8 +126,8 @@ class LiveViewActivity : AppCompatActivity() {
             binding.liveStatusText.text = "Requesting $role session..."
             val payload = JSONObject()
                 .put("role", role)
-                .put("vehicle_id", state.vehicleId)
-                .put("owner_id", state.pairedOwnerId)
+                .put("vehicle_id", vehicleId)
+                .put("owner_id", ownerId)
                 .put("bitrate_kbps", selectedBitrateKbps())
 
             val result = withContext(Dispatchers.IO) {
@@ -95,8 +152,11 @@ class LiveViewActivity : AppCompatActivity() {
 
     private fun requestAndOpenNativeLiveViewer() {
         val state = pairingManager.snapshot()
-        if (!state.paired) {
-            Toast.makeText(this, "Pair device first", Toast.LENGTH_SHORT).show()
+        val session = authSessionManager.snapshot()
+        val vehicleId = state.activeVehicleId.ifBlank { state.vehicleId }
+        val ownerId = state.pairedOwnerId.ifBlank { session.userId }
+        if (vehicleId.isBlank()) {
+            Toast.makeText(this, "Set vehicle ID in Pair screen first", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -104,8 +164,8 @@ class LiveViewActivity : AppCompatActivity() {
             binding.liveStatusText.text = "Requesting native WebRTC session..."
             val payload = JSONObject()
                 .put("role", "viewer")
-                .put("vehicle_id", state.vehicleId)
-                .put("owner_id", state.pairedOwnerId)
+                .put("vehicle_id", vehicleId)
+                .put("owner_id", ownerId)
                 .put("bitrate_kbps", selectedBitrateKbps())
 
             val result = withContext(Dispatchers.IO) {
@@ -148,6 +208,83 @@ class LiveViewActivity : AppCompatActivity() {
             binding.liveStatusText.text = "Opening low-latency live session"
             binding.liveWebView.loadUrl(liveKitViewerUrl)
         }
+    }
+
+    private fun requestAndOpenNativeLivePublisher() {
+        val state = pairingManager.snapshot()
+        val session = authSessionManager.snapshot()
+        val vehicleId = state.activeVehicleId.ifBlank { state.vehicleId }
+        val ownerId = state.pairedOwnerId.ifBlank { session.userId }
+        if (vehicleId.isBlank()) {
+            Toast.makeText(this, "Set vehicle ID in Pair screen first", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        scope.launch {
+            binding.liveStatusText.text = "Requesting native publisher session..."
+            val payload = JSONObject()
+                .put("role", "publisher")
+                .put("vehicle_id", vehicleId)
+                .put("owner_id", ownerId)
+                .put("bitrate_kbps", selectedBitrateKbps())
+
+            val result = withContext(Dispatchers.IO) {
+                apiClient.postJson("/api/v1/live/session/native", payload, authSessionManager.snapshot().token)
+            }
+            if (!result.success) {
+                binding.liveStatusText.text = "Publisher session request failed"
+                return@launch
+            }
+
+            val body = runCatching { JSONObject(result.body) }.getOrNull()
+            val supported = body?.optBoolean("supported", false) == true
+            if (!supported) {
+                val reason = body?.optString("reason").takeUnless { it.isNullOrBlank() }
+                    ?: "Native publish unavailable"
+                binding.liveStatusText.text = reason
+                val fallbackUrl = body?.optString("fallback_live_url").orEmpty()
+                if (fallbackUrl.isNotBlank()) {
+                    binding.liveWebView.loadUrl(fallbackUrl)
+                }
+                return@launch
+            }
+
+            val wsUrl = body?.optString("ws_url").orEmpty()
+            val accessToken = body?.optString("access_token").orEmpty()
+            if (wsUrl.isBlank() || accessToken.isBlank()) {
+                binding.liveStatusText.text = "Publisher session missing token details"
+                return@launch
+            }
+
+            val liveKitPublisherUrl = Uri.Builder()
+                .encodedPath("/live/auto-publisher")
+                .appendQueryParameter("ws_url", wsUrl)
+                .appendQueryParameter("token", accessToken)
+                .build()
+                .let { appendBackendBase(it) }
+
+            binding.liveStatusText.text = "Opening publisher in browser (keep it open)"
+            startActivity(
+                Intent(Intent.ACTION_VIEW, liveKitPublisherUrl)
+            )
+        }
+    }
+
+    private fun hasMediaPermissions(): Boolean {
+        val hasCamera = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+        val hasAudio = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.RECORD_AUDIO
+        ) == PackageManager.PERMISSION_GRANTED
+        return hasCamera && hasAudio
+    }
+
+    private fun appendBackendBase(relative: Uri): Uri {
+        val base = BuildConfig.ALERT_API_BASE_URL.trim().trimEnd('/')
+        return Uri.parse("$base${relative.encodedPath}?${relative.encodedQuery}")
     }
 
     private fun selectedBitrateKbps(): Int {
