@@ -12,6 +12,13 @@ function signHs256(input, secret) {
   return crypto.createHmac("sha256", secret).update(input).digest("base64url");
 }
 
+function canonicalRoomName(ownerId, vehicleId) {
+  const owner = String(ownerId || "").trim().toLowerCase().replace(/[^a-z0-9_-]/g, "");
+  if (owner) return `owner-${owner}`;
+  const vehicle = String(vehicleId || "").trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "");
+  return `vehicle-${vehicle || "default"}`;
+}
+
 function buildLiveKitToken({
   apiKey,
   apiSecret,
@@ -31,7 +38,7 @@ function buildLiveKitToken({
       room: roomName,
       roomJoin: true,
       canPublish: role === "publisher",
-      canSubscribe: true,
+      canSubscribe: role !== "publisher",
       canPublishData: true
     }
   };
@@ -91,7 +98,7 @@ router.post("/session/native", (req, res) => {
 
   if (liveKitUrl && liveKitApiKey && liveKitApiSecret) {
     const expiresInSeconds = 120;
-    const roomName = `vehicle-${parsed.data.vehicle_id}`;
+    const roomName = canonicalRoomName(parsed.data.owner_id, parsed.data.vehicle_id);
     const identityBase = parsed.data.owner_id || parsed.data.vehicle_id;
     const identity = `${parsed.data.role}-${identityBase}-${Date.now()}`;
     const accessToken = buildLiveKitToken({
