@@ -56,7 +56,7 @@ app.get("/live/viewer", (req, res) => {
           <video id="remoteVideo" autoplay playsinline controls></video>
         </div>
         <script type="module">
-          import { Room, RoomEvent } from "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.esm.mjs";
+          import { Room, RoomEvent, createLocalVideoTrack, createLocalAudioTrack } from "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.esm.mjs";
           const statusEl = document.getElementById("status");
           const remoteVideo = document.getElementById("remoteVideo");
           const wsUrl = ${JSON.stringify(wsUrl)};
@@ -83,6 +83,7 @@ app.get("/live/viewer", (req, res) => {
 
               room.remoteParticipants.forEach((p) => {
                 p.trackPublications.forEach((pub) => {
+                  try { pub.setSubscribed(true); } catch (_) {}
                   if (pub.track && pub.track.kind === "video") {
                     pub.track.attach(remoteVideo);
                     setStatus("Live video connected");
@@ -134,7 +135,7 @@ app.get("/live/auto-publisher", (req, res) => {
           <video id="localVideo" autoplay playsinline muted></video>
         </div>
         <script type="module">
-          import { Room, createLocalVideoTrack, createLocalAudioTrack } from "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.esm.mjs";
+          import { Room, createLocalVideoTrack, createLocalAudioTrack, RoomEvent } from "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.esm.mjs";
           const statusEl = document.getElementById("status");
           const localVideo = document.getElementById("localVideo");
           const wsUrl = ${JSON.stringify(wsUrl)};
@@ -150,17 +151,24 @@ app.get("/live/auto-publisher", (req, res) => {
                 adaptiveStream: true,
                 dynacast: true
               });
+              room.on(RoomEvent.Disconnected, () => {
+                statusEl.textContent = "Publisher disconnected";
+              });
               await room.connect(wsUrl, token);
               statusEl.textContent = "Connected. Starting camera + mic...";
 
               const [videoTrack, audioTrack] = await Promise.all([
-                createLocalVideoTrack(),
+                createLocalVideoTrack({
+                  facingMode: "environment",
+                  resolution: { width: 1280, height: 720 },
+                  frameRate: 24
+                }),
                 createLocalAudioTrack()
               ]);
               await room.localParticipant.publishTrack(videoTrack, { videoCodec: "h264" });
               await room.localParticipant.publishTrack(audioTrack);
               videoTrack.attach(localVideo);
-              statusEl.textContent = "Publishing live. Keep this page open.";
+              statusEl.textContent = "Publishing live (video+audio). Keep this page open.";
             } catch (e) {
               statusEl.textContent = "Publish failed: " + (e?.message || e);
             }
