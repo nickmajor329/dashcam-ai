@@ -1,0 +1,583 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dashcam.ai"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:4:5-65
+11-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:4:22-62
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:5:5-71
+12-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:5:22-68
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:6:5-79
+13-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:6:22-76
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:7:5-81
+14-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:7:22-78
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:8:5-77
+15-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:8:22-74
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+16-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:9:5-84
+16-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:9:22-81
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+17-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:10:5-88
+17-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:10:22-85
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+18-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:11:5-86
+18-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:11:22-83
+19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+19-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:12:5-77
+19-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:12:22-74
+20    <uses-permission android:name="android.permission.BLUETOOTH" />
+20-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:13:5-68
+20-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:13:22-65
+21    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+21-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:14:5-76
+21-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:14:22-73
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:15:5-67
+22-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:15:22-64
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:16:5-79
+23-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:16:22-76
+24    <uses-permission android:name="android.permission.WAKE_LOCK" />
+24-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:17:5-68
+24-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:17:22-65
+25    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+25-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:18:5-81
+25-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:18:22-78
+26
+27    <permission
+27-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+28        android:name="com.dashcam.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+28-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+29        android:protectionLevel="signature" />
+29-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+30
+31    <uses-permission android:name="com.dashcam.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+31-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+31-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+32
+33    <application
+33-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:20:5-100:19
+34        android:allowBackup="true"
+34-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:21:9-35
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.13.1] /Users/Nick_1/.gradle/caches/transforms-4/8e0a0bff2d388b6446750efdf4a5758f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+36        android:debuggable="true"
+37        android:extractNativeLibs="false"
+38        android:label="@string/app_name"
+38-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:22:9-41
+39        android:supportsRtl="true"
+39-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:23:9-35
+40        android:testOnly="true"
+41        android:theme="@style/Theme.DashcamAI" >
+41-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:24:9-47
+42        <activity
+42-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:26:9-33:20
+43            android:name="com.dashcam.ai.MainActivity"
+43-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:27:13-41
+44            android:exported="true" >
+44-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:28:13-36
+45            <intent-filter>
+45-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:29:13-32:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:30:17-69
+46-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:30:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:31:17-77
+48-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:31:27-74
+49            </intent-filter>
+50        </activity>
+51        <activity
+51-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:34:9-36:40
+52            android:name="com.dashcam.ai.settings.SettingsActivity"
+52-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:35:13-54
+53            android:exported="false" />
+53-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:36:13-37
+54        <activity
+54-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:37:9-39:40
+55            android:name="com.dashcam.ai.auth.LoginActivity"
+55-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:38:13-47
+56            android:exported="false" />
+56-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:39:13-37
+57        <activity
+57-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:40:9-42:40
+58            android:name="com.dashcam.ai.pairing.PairingActivity"
+58-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:41:13-52
+59            android:exported="false" />
+59-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:42:13-37
+60        <activity
+60-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:43:9-46:52
+61            android:name="com.dashcam.ai.pairing.QrScannerActivity"
+61-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:44:13-54
+62            android:exported="false"
+62-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:45:13-37
+63            android:screenOrientation="portrait" />
+63-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:46:13-49
+64        <activity
+64-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:47:9-49:40
+65            android:name="com.dashcam.ai.live.LiveViewActivity"
+65-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:48:13-50
+66            android:exported="false" />
+66-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:49:13-37
+67        <activity
+67-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:50:9-52:40
+68            android:name="com.dashcam.ai.timeline.TimelineActivity"
+68-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:51:13-54
+69            android:exported="false" />
+69-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:52:13-37
+70
+71        <service
+71-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:54:9-58:74
+72            android:name="com.dashcam.ai.recording.RecordingService"
+72-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:55:13-55
+73            android:enabled="true"
+73-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:56:13-35
+74            android:exported="false"
+74-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:57:13-37
+75            android:foregroundServiceType="camera|microphone|location" />
+75-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:58:13-71
+76
+77        <provider
+78            android:name="androidx.core.content.FileProvider"
+78-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:61:13-62
+79            android:authorities="com.dashcam.ai.fileprovider"
+79-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:62:13-64
+80            android:exported="false"
+80-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:63:13-37
+81            android:grantUriPermissions="true" >
+81-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:64:13-47
+82            <meta-data
+82-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:65:13-67:54
+83                android:name="android.support.FILE_PROVIDER_PATHS"
+83-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:66:17-67
+84                android:resource="@xml/file_paths" />
+84-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:67:17-51
+85        </provider>
+86
+87        <receiver
+87-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:70:9-78:20
+88            android:name="com.dashcam.ai.system.BootReceiver"
+88-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:71:13-48
+89            android:enabled="true"
+89-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:72:13-35
+90            android:exported="false" >
+90-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:73:13-37
+91            <intent-filter>
+91-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:74:13-77:29
+92                <action android:name="android.intent.action.BOOT_COMPLETED" />
+92-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:75:17-79
+92-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:75:25-76
+93                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+93-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:76:17-86
+93-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:76:25-83
+94            </intent-filter>
+95        </receiver>
+96        <receiver
+96-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:80:9-88:20
+97            android:name="com.dashcam.ai.system.PowerStateReceiver"
+97-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:81:13-54
+98            android:enabled="true"
+98-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:82:13-35
+99            android:exported="false" >
+99-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:83:13-37
+100            <intent-filter>
+100-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:84:13-87:29
+101                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+101-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:85:17-87
+101-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:85:25-84
+102                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+102-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:86:17-90
+102-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:86:25-87
+103            </intent-filter>
+104        </receiver>
+105        <receiver
+105-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:90:9-98:20
+106            android:name="com.dashcam.ai.system.BluetoothStateReceiver"
+106-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:91:13-58
+107            android:enabled="true"
+107-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:92:13-35
+108            android:exported="false" >
+108-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:93:13-37
+109            <intent-filter>
+109-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:94:13-97:29
+110                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+110-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:95:17-88
+110-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:95:25-85
+111                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+111-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:96:17-91
+111-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:96:25-88
+112            </intent-filter>
+113        </receiver>
+114
+115        <service
+115-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
+116            android:name="androidx.camera.core.impl.MetadataHolderService"
+116-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
+117            android:enabled="false"
+117-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
+118            android:exported="false" >
+118-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
+119            <meta-data
+119-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
+120                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+120-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
+121                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+121-->[androidx.camera:camera-camera2:1.3.4] /Users/Nick_1/.gradle/caches/transforms-4/40d3e7b14b154e25a43080dab422f582/transformed/camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
+122        </service>
+123        <service
+123-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:9:9-15:19
+124            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+124-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:10:13-91
+125            android:directBootAware="true"
+125-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:17:13-43
+126            android:exported="false" >
+126-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:11:13-37
+127            <meta-data
+127-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:12:13-14:85
+128                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+128-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:13:17-120
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /Users/Nick_1/.gradle/caches/transforms-4/9ca00b7b8ef4ea98c66e46abda24394c/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:14:17-82
+130            <meta-data
+130-->[com.google.mlkit:vision-common:17.3.0] /Users/Nick_1/.gradle/caches/transforms-4/f8d4b8485aaa5c7f55dd8b62e0d3d6f0/transformed/vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+131                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+131-->[com.google.mlkit:vision-common:17.3.0] /Users/Nick_1/.gradle/caches/transforms-4/f8d4b8485aaa5c7f55dd8b62e0d3d6f0/transformed/vision-common-17.3.0/AndroidManifest.xml:13:17-124
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[com.google.mlkit:vision-common:17.3.0] /Users/Nick_1/.gradle/caches/transforms-4/f8d4b8485aaa5c7f55dd8b62e0d3d6f0/transformed/vision-common-17.3.0/AndroidManifest.xml:14:17-82
+133            <meta-data
+133-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:20:13-22:85
+134                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+134-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:21:17-120
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:22:17-82
+136        </service>
+137
+138        <provider
+138-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:9:9-13:38
+139            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+139-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:10:13-78
+140            android:authorities="com.dashcam.ai.mlkitinitprovider"
+140-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:11:13-69
+141            android:exported="false"
+141-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:12:13-37
+142            android:initOrder="99" />
+142-->[com.google.mlkit:common:18.11.0] /Users/Nick_1/.gradle/caches/transforms-4/098d6991556d8ee249fb1c76c0e28b4c/transformed/common-18.11.0/AndroidManifest.xml:13:13-35
+143        <provider
+143-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+144            android:name="androidx.startup.InitializationProvider"
+144-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+145            android:authorities="com.dashcam.ai.androidx-startup"
+145-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+146            android:exported="false" >
+146-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+147            <meta-data
+147-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+148                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+148-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+149                android:value="androidx.startup" />
+149-->[androidx.emoji2:emoji2:1.3.0] /Users/Nick_1/.gradle/caches/transforms-4/192474c036ec43764acdf6f3e34ae042/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+150            <meta-data
+150-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:34:13-36:52
+151                android:name="androidx.work.WorkManagerInitializer"
+151-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:35:17-68
+152                android:value="androidx.startup" />
+152-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:36:17-49
+153            <meta-data
+153-->[androidx.lifecycle:lifecycle-process:2.8.4] /Users/Nick_1/.gradle/caches/transforms-4/5b8ea465910fd80be9fa1407ed6ac524/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:29:13-31:52
+154                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+154-->[androidx.lifecycle:lifecycle-process:2.8.4] /Users/Nick_1/.gradle/caches/transforms-4/5b8ea465910fd80be9fa1407ed6ac524/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:30:17-78
+155                android:value="androidx.startup" />
+155-->[androidx.lifecycle:lifecycle-process:2.8.4] /Users/Nick_1/.gradle/caches/transforms-4/5b8ea465910fd80be9fa1407ed6ac524/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:31:17-49
+156            <meta-data
+156-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+157                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+157-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+158                android:value="androidx.startup" />
+158-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+159        </provider>
+160
+161        <activity
+161-->[com.google.android.gms:play-services-base:18.5.0] /Users/Nick_1/.gradle/caches/transforms-4/db3e207e8cdea149435fa399a0395321/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+162            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+162-->[com.google.android.gms:play-services-base:18.5.0] /Users/Nick_1/.gradle/caches/transforms-4/db3e207e8cdea149435fa399a0395321/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+163            android:exported="false"
+163-->[com.google.android.gms:play-services-base:18.5.0] /Users/Nick_1/.gradle/caches/transforms-4/db3e207e8cdea149435fa399a0395321/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+164            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+164-->[com.google.android.gms:play-services-base:18.5.0] /Users/Nick_1/.gradle/caches/transforms-4/db3e207e8cdea149435fa399a0395321/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+165
+166        <meta-data
+166-->[com.google.android.gms:play-services-basement:18.4.0] /Users/Nick_1/.gradle/caches/transforms-4/03233ce612030785a644ea85f8aa2e65/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+167            android:name="com.google.android.gms.version"
+167-->[com.google.android.gms:play-services-basement:18.4.0] /Users/Nick_1/.gradle/caches/transforms-4/03233ce612030785a644ea85f8aa2e65/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+168            android:value="@integer/google_play_services_version" />
+168-->[com.google.android.gms:play-services-basement:18.4.0] /Users/Nick_1/.gradle/caches/transforms-4/03233ce612030785a644ea85f8aa2e65/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+169
+170        <service
+170-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:39:9-45:35
+171            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+171-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:40:13-88
+172            android:directBootAware="false"
+172-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:41:13-44
+173            android:enabled="@bool/enable_system_alarm_service_default"
+173-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:42:13-72
+174            android:exported="false" />
+174-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:43:13-37
+175        <service
+175-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:46:9-52:35
+176            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+176-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:47:13-84
+177            android:directBootAware="false"
+177-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:48:13-44
+178            android:enabled="@bool/enable_system_job_service_default"
+178-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:49:13-70
+179            android:exported="true"
+179-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:50:13-36
+180            android:permission="android.permission.BIND_JOB_SERVICE" />
+180-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:51:13-69
+181        <service
+181-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:53:9-59:35
+182            android:name="androidx.work.impl.foreground.SystemForegroundService"
+182-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:54:13-81
+183            android:directBootAware="false"
+183-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:55:13-44
+184            android:enabled="@bool/enable_system_foreground_service_default"
+184-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:56:13-77
+185            android:exported="false" />
+185-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:57:13-37
+186
+187        <receiver
+187-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:61:9-66:35
+188            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+188-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:62:13-88
+189            android:directBootAware="false"
+189-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:63:13-44
+190            android:enabled="true"
+190-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:64:13-35
+191            android:exported="false" />
+191-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:65:13-37
+192        <receiver
+192-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:67:9-77:20
+193            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+193-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:68:13-106
+194            android:directBootAware="false"
+194-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:69:13-44
+195            android:enabled="false"
+195-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:70:13-36
+196            android:exported="false" >
+196-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:71:13-37
+197            <intent-filter>
+197-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:84:13-87:29
+198                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+198-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:85:17-87
+198-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:85:25-84
+199                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+199-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:86:17-90
+199-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:86:25-87
+200            </intent-filter>
+201        </receiver>
+202        <receiver
+202-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:78:9-88:20
+203            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+203-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:79:13-104
+204            android:directBootAware="false"
+204-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:80:13-44
+205            android:enabled="false"
+205-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:81:13-36
+206            android:exported="false" >
+206-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:82:13-37
+207            <intent-filter>
+207-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:84:13-87:29
+208                <action android:name="android.intent.action.BATTERY_OKAY" />
+208-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:17-77
+208-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:25-74
+209                <action android:name="android.intent.action.BATTERY_LOW" />
+209-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:17-76
+209-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:25-73
+210            </intent-filter>
+211        </receiver>
+212        <receiver
+212-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:89:9-99:20
+213            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+213-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:90:13-104
+214            android:directBootAware="false"
+214-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:91:13-44
+215            android:enabled="false"
+215-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:92:13-36
+216            android:exported="false" >
+216-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:93:13-37
+217            <intent-filter>
+217-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:95:13-98:29
+218                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+218-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:17-83
+218-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:25-80
+219                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+219-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:17-82
+219-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:25-79
+220            </intent-filter>
+221        </receiver>
+222        <receiver
+222-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:100:9-109:20
+223            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+223-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:101:13-103
+224            android:directBootAware="false"
+224-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:102:13-44
+225            android:enabled="false"
+225-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:103:13-36
+226            android:exported="false" >
+226-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:104:13-37
+227            <intent-filter>
+227-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:106:13-108:29
+228                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+228-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:17-79
+228-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:25-76
+229            </intent-filter>
+230        </receiver>
+231        <receiver
+231-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:110:9-121:20
+232            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+232-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:111:13-88
+233            android:directBootAware="false"
+233-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:112:13-44
+234            android:enabled="false"
+234-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:113:13-36
+235            android:exported="false" >
+235-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:114:13-37
+236            <intent-filter>
+236-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:116:13-120:29
+237                <action android:name="android.intent.action.BOOT_COMPLETED" />
+237-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:75:17-79
+237-->/Users/Nick_1/Documents/Dashcam/app/src/main/AndroidManifest.xml:75:25-76
+238                <action android:name="android.intent.action.TIME_SET" />
+238-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:17-73
+238-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:25-70
+239                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+239-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:17-81
+239-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:25-78
+240            </intent-filter>
+241        </receiver>
+242        <receiver
+242-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:122:9-131:20
+243            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+243-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:123:13-99
+244            android:directBootAware="false"
+244-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:124:13-44
+245            android:enabled="@bool/enable_system_alarm_service_default"
+245-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:125:13-72
+246            android:exported="false" >
+246-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:126:13-37
+247            <intent-filter>
+247-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:128:13-130:29
+248                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+248-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:17-98
+248-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:25-95
+249            </intent-filter>
+250        </receiver>
+251        <receiver
+251-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:132:9-142:20
+252            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+252-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:133:13-78
+253            android:directBootAware="false"
+253-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:134:13-44
+254            android:enabled="true"
+254-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:135:13-35
+255            android:exported="true"
+255-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:136:13-36
+256            android:permission="android.permission.DUMP" >
+256-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:137:13-57
+257            <intent-filter>
+257-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:139:13-141:29
+258                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+258-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:17-88
+258-->[androidx.work:work-runtime:2.9.1] /Users/Nick_1/.gradle/caches/transforms-4/e710c085a96f16b175cc1de65cf603bb/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:25-85
+259            </intent-filter>
+260        </receiver>
+261
+262        <service
+262-->[androidx.room:room-runtime:2.6.1] /Users/Nick_1/.gradle/caches/transforms-4/3eef4d96e4fa45a5f8c6e12621e24ad3/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+263            android:name="androidx.room.MultiInstanceInvalidationService"
+263-->[androidx.room:room-runtime:2.6.1] /Users/Nick_1/.gradle/caches/transforms-4/3eef4d96e4fa45a5f8c6e12621e24ad3/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+264            android:directBootAware="true"
+264-->[androidx.room:room-runtime:2.6.1] /Users/Nick_1/.gradle/caches/transforms-4/3eef4d96e4fa45a5f8c6e12621e24ad3/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+265            android:exported="false" />
+265-->[androidx.room:room-runtime:2.6.1] /Users/Nick_1/.gradle/caches/transforms-4/3eef4d96e4fa45a5f8c6e12621e24ad3/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+266
+267        <receiver
+267-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+268            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+268-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+269            android:directBootAware="false"
+269-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+270            android:enabled="true"
+270-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+271            android:exported="true"
+271-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+272            android:permission="android.permission.DUMP" >
+272-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+273            <intent-filter>
+273-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+274                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+274-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+274-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+275            </intent-filter>
+276            <intent-filter>
+276-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+277                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+277-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+277-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+278            </intent-filter>
+279            <intent-filter>
+279-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+280                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+280-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+280-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+281            </intent-filter>
+282            <intent-filter>
+282-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+283                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+283-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+283-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/Nick_1/.gradle/caches/transforms-4/4e16cc280eaa0a1f5277c41379c36ea2/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+284            </intent-filter>
+285        </receiver>
+286
+287        <service
+287-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+288            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+288-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+289            android:exported="false" >
+289-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+290            <meta-data
+290-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+291                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+291-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+292                android:value="cct" />
+292-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/Nick_1/.gradle/caches/transforms-4/97e132eedbbc24660e89a492168689f5/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+293        </service>
+294        <service
+294-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+295            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+295-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+296            android:exported="false"
+296-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+297            android:permission="android.permission.BIND_JOB_SERVICE" >
+297-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+298        </service>
+299
+300        <receiver
+300-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+301            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+301-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+302            android:exported="false" />
+302-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/Nick_1/.gradle/caches/transforms-4/cbdf2690b7bebf66276e3f22bd116a61/transformed/transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+303    </application>
+304
+305</manifest>

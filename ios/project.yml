@@ -1,0 +1,22 @@
+name: DashcamCompanion
+options:
+  deploymentTarget:
+    iOS: 16.0
+targets:
+  DashcamCompanion:
+    type: application
+    platform: iOS
+    sources:
+      - DashcamCompanion
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dashcam.ai.companion
+        SWIFT_VERSION: 5.0
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: Dashcam pairing and live connectivity.
+        INFOPLIST_KEY_NSCameraUsageDescription: Scan dashcam pairing QR codes.
+    info:
+      path: DashcamCompanion/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false

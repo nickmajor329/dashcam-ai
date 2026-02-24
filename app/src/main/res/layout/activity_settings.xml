@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:text="Settings"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Camera &amp; Recording"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/defaultFrontLensSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default to front camera" />
+
+        <EditText
+            android:id="@+id/segmentSecondsInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Segment duration seconds (15-300)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/maxStorageGbInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Max storage GB (1-64)"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Parking Detection"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/idleDetectionSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable idle motion auto-park" />
+
+        <EditText
+            android:id="@+id/idleMinutesInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Idle threshold minutes (1-60)"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Display"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/defaultDimSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default dim screen" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/defaultBlackSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default black screen" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Geo-fence Alerts"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/geofenceEnabledSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable geo-fence gating" />
+
+        <RadioGroup
+            android:id="@+id/geofenceModeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/geofenceModeAny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allow anywhere" />
+
+            <RadioButton
+                android:id="@+id/geofenceModeHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Only at Home" />
+
+            <RadioButton
+                android:id="@+id/geofenceModeWork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Only at Work" />
+
+            <RadioButton
+                android:id="@+id/geofenceModePublic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Only at Public (not Home/Work)" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/homeLatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Home latitude"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <EditText
+            android:id="@+id/homeLonInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Home longitude"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <EditText
+            android:id="@+id/workLatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Work latitude"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <EditText
+            android:id="@+id/workLonInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Work longitude"
+            android:inputType="numberDecimal|numberSigned" />
+
+        <EditText
+            android:id="@+id/geofenceRadiusInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Geo-fence radius meters (50-2000)"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Fleet Mode"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/activeVehicleIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Active vehicle ID"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/activeRoleInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Role: OWNER, ADMIN, DRIVER, VIEWER"
+            android:inputType="textCapCharacters" />
+
+        <Button
+            android:id="@+id/setActiveVehicleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Active Vehicle" />
+
+        <Button
+            android:id="@+id/saveFleetRoleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Vehicle Role" />
+
+        <TextView
+            android:id="@+id/fleetPolicyTargetText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Routing policy target: none"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+
+        <TextView
+            android:id="@+id/fleetSummaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fleet: none"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Alert Routing"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/appAlertSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send app push" />
+
+        <EditText
+            android:id="@+id/appDeviceIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Target app device token"
+            android:inputType="text" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/emailAlertSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Send email" />
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="recipient@example.com"
+            android:inputType="textEmailAddress" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/smsAlertSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Send text (SMS)" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="+15551234567"
+            android:inputType="phone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Privacy Modes"
+            android:textStyle="bold" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/blurFacesSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blur faces (metadata flag)" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/blurPlatesSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blur license plates (metadata flag)" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/encryptEventClipsSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Encrypt event clips at rest" />
+
+        <EditText
+            android:id="@+id/retentionLowDaysInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Low severity retention days (1-30)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/retentionMediumDaysInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Medium severity retention days (1-60)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/retentionHighDaysInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="High severity retention days (1-180)"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/saveSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Save Settings" />
+
+    </LinearLayout>
+</ScrollView>

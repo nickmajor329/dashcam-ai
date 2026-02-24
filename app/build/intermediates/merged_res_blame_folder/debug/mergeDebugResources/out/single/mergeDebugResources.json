@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_settings.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.dashcam.ai.app-debug-48:/layout_activity_login.xml.flat",
+        "source": "com.dashcam.ai.app-main-50:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.dashcam.ai.app-debug-48:/layout_activity_main.xml.flat",
+        "source": "com.dashcam.ai.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_live_view.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_live_view.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_qr_scanner.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_qr_scanner.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_pairing.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_pairing.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_item_event_timeline.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/item_event_timeline.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_main.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/xml_file_paths.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/xml/file_paths.xml"
+    },
+    {
+        "merged": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-debug-48:/layout_activity_timeline.xml.flat",
+        "source": "/Users/Nick_1/.gradle/daemon/8.7/com.dashcam.ai.app-main-50:/layout/activity_timeline.xml"
+    }
+]

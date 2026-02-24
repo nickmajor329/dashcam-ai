@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="bg_base">#0B1014</color>
+    <color name="bg_surface">#121A22</color>
+    <color name="bg_surface_alt">#1A2530</color>
+
+    <color name="brand_primary">#2EC4B6</color>
+    <color name="brand_primary_container">#194D4A</color>
+    <color name="brand_secondary">#FF9F1C</color>
+    <color name="brand_secondary_container">#5A3C12</color>
+
+    <color name="text_primary">#EAF2F8</color>
+    <color name="text_secondary">#B3C1CC</color>
+    <color name="text_on_brand">#071315</color>
+</resources>

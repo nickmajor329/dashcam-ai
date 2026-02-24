@@ -1,0 +1,25 @@
+Place your TensorFlow Lite model file here as:
+
+vehicle_event_detector.tflite
+
+Expected model contract in this MVP:
+- Input tensor: [1, 224, 224, 3] float32, RGB normalized 0..1
+- Output tensor: [1, 3] float32 scores
+- Class index mapping:
+  0 = MOTION_NEAR_VEHICLE
+  1 = PERSON_NEAR_WINDOW
+  2 = IMPACT
+
+Smarter AI pipeline (app-side post-processing):
+- Multi-frame sampling: 5 frames spread across clip duration.
+- Temporal voting + averaged scores to improve stability.
+- False-positive suppression:
+  - per-event confidence floors
+  - minimum dominant-frame vote thresholds
+  - per-event cooldown windows
+- Derived state signals from frame-score patterns:
+  - personLikely
+  - plateLikely (heuristic)
+  - doorLikelyOpen (heuristic)
+
+If the model file is missing, AI event detection will produce no events.
